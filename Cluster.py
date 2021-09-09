@@ -11,19 +11,6 @@ class Vnode(object):
 
 
 class Cluster():
-
-    ##########  statistic for RL agent?  ############
-    vnode_hit_counts = []
-    vnode_hit_bytes = []
-    vnode_req_counts = []
-    vnode_req_bytes = []
-
-    cache_hit_counts = []
-    cache_hit_bytes = []
-    cache_req_counts = []
-    cache_req_bytes = []
-    ##################################################
-
     def __init__(self, cache_num, vnode_num, capacity):
         self.caches = []
         self.vnodes = []
@@ -32,6 +19,18 @@ class Cluster():
         self.hit_counts = 0
         self.req_bytes = 0
         self.req_counts = 0
+
+        ##########  statistic for RL agent?  ############
+        self.vnode_hit_counts = []
+        self.vnode_hit_bytes = []
+        self.vnode_req_counts = []
+        self.vnode_req_bytes = []
+
+        self.cache_hit_counts = []
+        self.cache_hit_bytes = []
+        self.cache_req_counts = []
+        self.cache_req_bytes = []
+        ##################################################
 
         base_ip = "192.168.1."
         for i in range(cache_num):
